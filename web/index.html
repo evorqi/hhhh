@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>کارگاه پاک‌سازی داده</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">پردازش محلی · بدون داده ساختگی</p>
+      <h1>کارگاه پاک‌سازی داده</h1>
+    </div>
+    <p id="ai-note" class="note"></p>
+  </header>
+
+  <nav class="steps" aria-label="مراحل کار">
+    <ol id="stepper"></ol>
+  </nav>
+
+  <main>
+    <section class="panel" id="upload-panel">
+      <h2>فایل</h2>
+      <form id="upload-form">
+        <label class="drop" for="file-input">
+          <span>CSV یا XLSX را انتخاب کنید</span>
+          <small id="limits"></small>
+          <input id="file-input" name="file" type="file" accept=".csv,.txt,.xlsx,.xlsm,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </label>
+        <div class="row">
+          <button type="button" id="sample-button">بارگذاری فایل نمونه</button>
+          <button type="submit" id="upload-button">بررسی فایل</button>
+        </div>
+      </form>
+      <p id="upload-status" class="status" role="status"></p>
+      <label class="token" id="token-label" hidden>
+        رمز فضای کار
+        <input id="token-input" type="password" autocomplete="off">
+      </label>
+    </section>
+
+    <section class="panel" id="summary-panel" hidden>
+      <h2>بررسی فایل</h2>
+      <div id="summary"></div>
+    </section>
+
+    <section class="panel" id="request-panel" hidden>
+      <h2>درخواست</h2>
+      <label for="request-input">بگویید چه تغییری می‌خواهید. طرح قبل از اجرا نشان داده می‌شود.</label>
+      <textarea id="request-input" rows="5"></textarea>
+      <div class="row" id="suggestions"></div>
+      <button type="button" id="plan-button">ساخت طرح</button>
+    </section>
+
+    <section class="panel" id="plan-panel" hidden>
+      <h2>طرح</h2>
+      <div id="plan"></div>
+    </section>
+
+    <section class="panel" id="result-panel" hidden>
+      <h2>نتیجه</h2>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>فایل اصلی بازنویسی نمی‌شود. اعداد این صفحه از پاسخ سرور می‌آیند.</p>
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>
